@@ -4,7 +4,7 @@
 (function (window,angular) {
     /*-------------------单页面程序开发------------------------*/
     //创建主模块
-    var app=angular.module("mainApp",["ngRoute","mainApp.in_theaters"]);
+    var app=angular.module("mainApp",["ngRoute","mainApp.in_theaters","mainApp.subject"]);
 
 
     //配置路由
@@ -18,6 +18,10 @@
             .when("/in_theaters/:page?",{
                 templateUrl:"js/module/in_theaters/template.html",
                 controller:"theatersCtrl"
+            })
+            .when("/subject/:id",{
+                templateUrl:"js/module/subject/subTemplate.html",
+                controller:"subjectCtrl"
             })
             .otherwise({
                 redirectTo:"/in_theaters"

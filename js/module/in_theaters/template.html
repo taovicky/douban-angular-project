@@ -1,6 +1,7 @@
 <h1 class="page-header">{{title}}</h1>
 <div class="list-group ">
-    <a ng-repeat="item in subjects" href="#/" class="list-group-item">
+    <!--因此点击a就会通过item.id传递给subjectCtrl控制器，获得最新的id-->
+    <a ng-repeat="item in subjects" ng-href="{{'#/subject/'+item.id}}" class="list-group-item">
         <div class="media">
             <div class="media-left">
                 <img class="media-object" alt="{{item.original_title}}" ng-src="{{item.images.medium}}">
