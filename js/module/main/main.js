@@ -15,7 +15,10 @@
         //配置路由表
         $routeProvider
             //配置正在热映的路由表
-            .when("/in_theaters/:page?",{
+            /**
+             * 1.如果此时不加上movie变成movie/:type/:page的话，那就代表type是可以变化的，所以也会匹配到下面的/subject/:id去，所以添加一个不可变的一层去完全区分开
+             */
+            .when("/mv/:type/:page?",{
                 templateUrl:"js/module/in_theaters/template.html",
                 controller:"theatersCtrl"
             })
@@ -24,7 +27,7 @@
                 controller:"subjectCtrl"
             })
             .otherwise({
-                redirectTo:"/in_theaters"
+                redirectTo:"/mv/in_theaters"
             })
 
     }]);

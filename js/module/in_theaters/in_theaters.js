@@ -35,11 +35,8 @@
 
 
 
-
-
-
         //通过httpservice服务请求api，拿到数据
-        var url = "https://api.douban.com/v2/movie/in_theaters";
+        var url = "https://api.douban.com/v2/movie/"+$routeParams.type;
         var param = {
             apikey: "00fa6c0654689a0202ef4412fd39ce06",
             start:($scope.page-1)*$scope.pageCount,
