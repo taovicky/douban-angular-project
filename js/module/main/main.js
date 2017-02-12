@@ -15,7 +15,7 @@
         //配置路由表
         $routeProvider
             //配置正在热映的路由表
-            .when("/in_theaters",{
+            .when("/in_theaters/:page?",{
                 templateUrl:"js/module/in_theaters/template.html",
                 controller:"theatersCtrl"
             })
