@@ -40,7 +40,9 @@
         var param = {
             apikey: "00fa6c0654689a0202ef4412fd39ce06",
             start:($scope.page-1)*$scope.pageCount,
-            count:$scope.pageCount
+            count:$scope.pageCount,
+            //将url中的改变的q获取下来，拼接成参数传递
+            q:$routeParams.q
         }
         httpService.getJsonp(url, param, function (data) {
             //拿到数据，接下来渲染到模板中,管理模板
@@ -62,6 +64,7 @@
                     $scope.page--;
 
                     //通过$route.updateParams更新url中改变的参数（锚点参数）
+                    //$route.updataParams的作用是：告诉angular更新url中改变的参数
                     $route.updateParams({'page':$scope.page});
                 }
 
@@ -69,7 +72,7 @@
 
             //下一页
             $scope.nextPage=function () {
-                if($scope.page<4){
+                if($scope.page<$scope.pageMax){
                     $scope.page++;
 
                     //通过$route.updateParams更新url中改变的参数（锚点参数）

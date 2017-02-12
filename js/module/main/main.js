@@ -32,4 +32,25 @@
 
     }]);
 
+
+    //搜索功能控制器
+    app.controller("searchCtrl",["$route","$scope",function ($route,$scope) {
+
+        //初始化
+        $scope.searchText="";
+
+        //搜索功能
+        $scope.search=function () {
+            if($scope.searchText.length>0){
+                //告诉angular更新url中改变的参数(这里只是告诉angular更新改变的参数，并不会完全改变对url进行增删操作)
+                $route.updateParams({
+                    type:"search",
+                    q:$scope.searchText
+                });
+                $scope.searchText="";
+            }
+        }
+
+    }])
+
 })(window,angular);
