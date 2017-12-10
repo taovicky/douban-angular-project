@@ -1,4 +1,4 @@
 (function  (arguments) {
   // body...
-  console.log("dev");
+  console.log("conflict");
 })()
